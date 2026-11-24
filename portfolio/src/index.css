@@ -1,0 +1,57 @@
+:root {
+  --bg: #080d16;
+  --surface: #0d1522;
+  --text: #edf3fa;
+  --muted: #9aa9b9;
+  --line: rgb(145 170 193 / 15%);
+  --line-strong: rgb(145 170 193 / 30%);
+  --cyan: #4dd7ff;
+
+  color: var(--text);
+  background: var(--bg);
+  font-family: Inter, Manrope, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--bg);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--cyan);
+  color: var(--bg);
+}
