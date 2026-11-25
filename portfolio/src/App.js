@@ -81,6 +81,19 @@ const projects = [
     demo: 'https://your-web-app-demo.example',
     repository: 'https://github.com/your-username/web-application',
   },
+  {
+    number: '05',
+    title: 'SunVolt Energy',
+    category: 'Frontend Development / Business Website',
+    description:
+      'A modern solar energy company website that presents renewable energy solutions, storage systems, and professional services through a responsive and engaging customer experience.',
+    technologies: ['React.js', 'Vite', 'JavaScript', 'HTML5', 'CSS3'],
+    visual: 'sunvolt',
+    demo: 'https://sunvolt-energy-website.onrender.com',
+    repository: 'https://github.com/Martinonyekachi/sunvolt-energy-website',
+    demoLabel: 'View Live Website',
+    repositoryLabel: 'View Source Code',
+  },
 ];
 
 const experience = [
@@ -113,6 +126,13 @@ function Arrow({ diagonal = false }) {
 function ProjectArtwork({ type }) {
   return (
     <div className={`project-art project-art--${type}`} aria-hidden="true">
+      {type === 'sunvolt' && (
+        <img
+          className="sunvolt-preview"
+          src="/sunvolt-energy-preview.svg"
+          alt=""
+        />
+      )}
       {type === 'portfolio' && (
         <div className="art-browser">
           <div className="art-browser-bar"><i /><i /><i /></div>
@@ -334,8 +354,12 @@ function App() {
                     {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
                   </ul>
                   <div className="project-links">
-                    <a href={project.demo} target="_blank" rel="noreferrer">Live demo <Arrow diagonal /></a>
-                    <a href={project.repository} target="_blank" rel="noreferrer">GitHub <Arrow diagonal /></a>
+                    <a href={project.demo} target="_blank" rel="noreferrer">
+                      {project.demoLabel || 'Live demo'} <Arrow diagonal />
+                    </a>
+                    <a href={project.repository} target="_blank" rel="noreferrer">
+                      {project.repositoryLabel || 'GitHub'} <Arrow diagonal />
+                    </a>
                   </div>
                 </div>
               </article>

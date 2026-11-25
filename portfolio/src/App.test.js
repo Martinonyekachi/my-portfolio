@@ -14,6 +14,20 @@ test('presents the engineering and web development portfolio', () => {
   expect(screen.getByText('Electrical Engineering Intern')).toBeInTheDocument();
 });
 
+test('presents the SunVolt Energy project with working external links', () => {
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: 'SunVolt Energy' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /view live website/i })).toHaveAttribute(
+    'href',
+    'https://sunvolt-energy-website.onrender.com',
+  );
+  expect(screen.getByRole('link', { name: /view source code/i })).toHaveAttribute(
+    'href',
+    'https://github.com/Martinonyekachi/sunvolt-energy-website',
+  );
+});
+
 test('shows Martin’s contact details with working email, phone, and LinkedIn links', () => {
   render(<App />);
 
