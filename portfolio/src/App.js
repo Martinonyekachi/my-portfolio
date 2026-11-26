@@ -94,6 +94,19 @@ const projects = [
     demoLabel: 'View Live Website',
     repositoryLabel: 'View Source Code',
   },
+  {
+    number: '06',
+    title: 'Muse – Real-Time Chat Application',
+    category: 'Full-stack development · Real-time messaging',
+    description:
+      'Muse is a full-stack real-time messaging application designed to facilitate seamless communication between users, with authentication, database integration, and live messaging.',
+    technologies: ['React', 'Node.js', 'Express.js', 'Socket.IO', 'PostgreSQL', 'JWT Authentication', 'Vite'],
+    visual: 'muse',
+    demo: 'https://chat-app-1-0lcy.onrender.com/',
+    repository: 'https://github.com/Martinonyekachi/chat-app.git',
+    demoLabel: 'Live Demo',
+    repositoryLabel: 'GitHub',
+  },
 ];
 
 const experience = [
@@ -130,6 +143,13 @@ function ProjectArtwork({ type }) {
         <img
           className="sunvolt-preview"
           src="/sunvolt-energy-preview.svg"
+          alt=""
+        />
+      )}
+      {type === 'muse' && (
+        <img
+          className="muse-preview"
+          src="/muse-chat-preview.png"
           alt=""
         />
       )}

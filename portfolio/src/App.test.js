@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import App from './App';
 
 test('presents the engineering and web development portfolio', () => {
@@ -25,6 +25,29 @@ test('presents the SunVolt Energy project with working external links', () => {
   expect(screen.getByRole('link', { name: /view source code/i })).toHaveAttribute(
     'href',
     'https://github.com/Martinonyekachi/sunvolt-energy-website',
+  );
+});
+
+test('presents the Muse chat project with its screenshot and external links', () => {
+  render(<App />);
+
+  const projectHeading = screen.getByRole('heading', {
+    name: 'Muse – Real-Time Chat Application',
+  });
+  const projectCard = projectHeading.closest('article');
+
+  expect(projectHeading).toBeInTheDocument();
+  expect(projectCard.querySelector('img')).toHaveAttribute(
+    'src',
+    '/muse-chat-preview.png',
+  );
+  expect(within(projectCard).getByRole('link', { name: 'Live Demo' })).toHaveAttribute(
+    'href',
+    'https://chat-app-1-0lcy.onrender.com/',
+  );
+  expect(within(projectCard).getByRole('link', { name: 'GitHub' })).toHaveAttribute(
+    'href',
+    'https://github.com/Martinonyekachi/chat-app.git',
   );
 });
 
