@@ -37,9 +37,13 @@ test('presents the Muse chat project with its screenshot and external links', ()
   const projectCard = projectHeading.closest('article');
 
   expect(projectHeading).toBeInTheDocument();
-  expect(projectCard.querySelector('img')).toHaveAttribute(
+  expect(projectCard.querySelector('.muse-preview--dashboard')).toHaveAttribute(
     'src',
-    '/muse-chat-preview.png',
+    '/muse-chat-dashboard.png',
+  );
+  expect(projectCard.querySelector('.muse-preview--login')).toHaveAttribute(
+    'src',
+    '/muse-chat-login.png',
   );
   expect(within(projectCard).getByRole('link', { name: 'Live Demo' })).toHaveAttribute(
     'href',

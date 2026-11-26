@@ -147,11 +147,18 @@ function ProjectArtwork({ type }) {
         />
       )}
       {type === 'muse' && (
-        <img
-          className="muse-preview"
-          src="/muse-chat-preview.png"
-          alt=""
-        />
+        <div className="muse-preview-stage">
+          <img
+            className="muse-preview muse-preview--dashboard"
+            src="/muse-chat-dashboard.png"
+            alt=""
+          />
+          <img
+            className="muse-preview muse-preview--login"
+            src="/muse-chat-login.png"
+            alt=""
+          />
+        </div>
       )}
       {type === 'portfolio' && (
         <div className="art-browser">
