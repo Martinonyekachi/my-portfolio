@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import YaksAdminShowcase from './components/YaksAdminShowcase';
 
 const contactEmail = 'martinosuji104@gmail.com';
 const contactPhone = '08112524993';
@@ -392,6 +393,7 @@ function App() {
               </article>
             ))}
           </div>
+          <YaksAdminShowcase />
         </section>
 
         <section className="experience-section section-spacing" id="experience">

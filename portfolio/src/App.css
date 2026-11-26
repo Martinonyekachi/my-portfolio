@@ -604,6 +604,10 @@
   padding-bottom: 122px;
 }
 
+.projects-section > .yaks-admin-showcase {
+  margin-top: 58px;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1421,6 +1425,10 @@
   .section-wrap,
   .site-header {
     width: calc(100% - 40px);
+  }
+
+  .projects-section > .yaks-admin-showcase {
+    margin-top: 40px;
   }
 
   .section-spacing {

@@ -17,12 +17,15 @@ test('presents the engineering and web development portfolio', () => {
 test('presents the SunVolt Energy project with working external links', () => {
   render(<App />);
 
-  expect(screen.getByRole('heading', { name: 'SunVolt Energy' })).toBeInTheDocument();
-  expect(screen.getByRole('link', { name: /view live website/i })).toHaveAttribute(
+  const projectHeading = screen.getByRole('heading', { name: 'SunVolt Energy' });
+  const projectCard = projectHeading.closest('article');
+
+  expect(projectHeading).toBeInTheDocument();
+  expect(within(projectCard).getByRole('link', { name: /view live website/i })).toHaveAttribute(
     'href',
     'https://sunvolt-energy-website.onrender.com',
   );
-  expect(screen.getByRole('link', { name: /view source code/i })).toHaveAttribute(
+  expect(within(projectCard).getByRole('link', { name: /view source code/i })).toHaveAttribute(
     'href',
     'https://github.com/Martinonyekachi/sunvolt-energy-website',
   );
@@ -53,6 +56,30 @@ test('presents the Muse chat project with its screenshot and external links', ()
     'href',
     'https://github.com/Martinonyekachi/chat-app.git',
   );
+});
+
+test('presents the Yaks Admin case study with configured external links and labeled preview placeholders', () => {
+  render(<App />);
+
+  const caseStudy = screen.getByRole('region', { name: 'Yaks Admin' });
+
+  expect(within(caseStudy).getByRole('heading', { name: 'Yaks Admin' })).toBeInTheDocument();
+  expect(within(caseStudy).getByRole('link', { name: 'Live Demo' })).toHaveAttribute(
+    'href',
+    'https://yaks-admin.onrender.com',
+  );
+  expect(within(caseStudy).getByRole('link', { name: 'Live Demo' })).toHaveAttribute('target', '_blank');
+  expect(within(caseStudy).getByRole('link', { name: 'Live Demo' })).toHaveAttribute(
+    'rel',
+    'noopener noreferrer',
+  );
+  expect(within(caseStudy).getByRole('link', { name: 'View Source Code' })).toHaveAttribute(
+    'href',
+    'https://github.com/Martinonyekachi/yaks-admin.git',
+  );
+  expect(within(caseStudy).getByText(/these custom interface sketches are clearly marked placeholders/i)).toBeInTheDocument();
+  expect(within(caseStudy).getAllByRole('button', { name: /placeholder$/i })).toHaveLength(5);
+  expect(within(caseStudy).getByText(/does not yet include CRUD API routes/i)).toBeInTheDocument();
 });
 
 test('shows Martin’s contact details with working email, phone, and LinkedIn links', () => {
